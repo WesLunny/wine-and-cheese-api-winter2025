@@ -9,13 +9,36 @@ let cheeses =[
     { id: 3, name:'leicester' },
 ] 
 
-// GET: return all cheeses
-
+/**
+ * @swagger
+ * /cheeses:
+ *   get:
+ *     summary: Retrive all cheeeses
+ *     responses:
+ *       200:
+ *         description: A list of all cheeses
+ */
 router.get('/',(req,res)=>{
     return res.status(200).json(cheeses);
 });
 
-// GET: return a cheese {id}
+/**
+ *  @swagger
+ *  /api/v1/cheeses/{id}:
+ *    get:
+ *      summary: Find cheese by its id
+ *      parameters:
+ *        - name: id
+ *          in: path
+ *          schema:
+ *            type: integer
+ *            required: true
+ *      responses:
+ *        200:
+ *          description: Returns a single cheese
+ *        404: 
+ *          description: Not found 
+ */
 router.get('/:id',(req,res)=>{
     let index = cheeses.findIndex(c=>c.id == req.params.id);    
     
