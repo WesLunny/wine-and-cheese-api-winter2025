@@ -1,8 +1,8 @@
 {
-    "version":2,
-    "builds":[
+    "version": 2,
+    "builds": [
         {
-            "src": "aps.js",
+            "src": "app.js",
             "use": "@vercel/node"
         }
     ],
