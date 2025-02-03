@@ -132,7 +132,7 @@ router.put('/:id',async(req,res)=>{
             return res.status(400).json({msg:"Bad Request"});
         }
         
-        await cheese.update(req.body);
+        await Cheese.findByIdAndUpdate(req.params.id, req.body);
         return res.status(204).json();// 204: resource was modified
     }
     catch(err){
@@ -164,7 +164,7 @@ router.delete('/:id',async(req,res)=>{
         return res.status(404).json({msg:'Not Found'});
     }
 
-    cheese.splice();
+    await Cheese.findByIdAndDelete(req.params.id);
     return res.status(204).json();
 });
 
