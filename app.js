@@ -33,7 +33,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 //mongoose setup db connection
 
 mongoose.connect(process.env.DB,{})
-.then((res)=>console.log('connect to db'))
+.then((res)=>console.log('connected to db'))
 .catch((err) => console.log("Connection failed: ${err}"));
 
 //url dispatching
